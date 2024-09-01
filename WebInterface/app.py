@@ -5,7 +5,10 @@ import pickle
 app = Flask(__name__)
 
 # Load the model and label encoders
-with open(r"C:\Users\kunal\OneDrive\Desktop\DCN\WebInterface\model_and_encoders.pkl", 'rb') as f:
+model_path = os.path.join(os.path.dirname(__file__), 'model_and_encoders.pkl')
+
+# Load the model and label encoders
+with open(model_path, 'rb') as f:
     loaded = pickle.load(f)
     model = loaded['model']
     label_encoders = loaded['label_encoders']
